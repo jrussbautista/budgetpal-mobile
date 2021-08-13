@@ -23,8 +23,8 @@ const DashboardScreen = () => {
 
   if (isLoading) {
     return (
-      <View>
-        <ActivityIndicator animating color={colors.primary} />
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator animating size="large" color={colors.primary} />
       </View>
     );
   }
@@ -55,5 +55,10 @@ export default DashboardScreen;
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

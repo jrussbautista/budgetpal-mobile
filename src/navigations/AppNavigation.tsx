@@ -1,12 +1,12 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
 
 import AuthNavigator from './AuthNavigator';
 import MainTabNavigator from './MainTabNavigator';
 
-import Splash from '@/app/Splash';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { loadCurrentUser } from '@/features/auth/slice';
 
@@ -18,13 +18,19 @@ const AppNavigation = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(loadCurrentUser());
+    const prepare = async () => {
+      await SplashScreen.preventAutoHideAsync();
+      await dispatch(loadCurrentUser());
+      await SplashScreen.hideAsync();
+    };
+
+    prepare();
   }, [dispatch]);
 
   const isLoading = status === 'idle' || status === 'loading';
 
   if (isLoading) {
-    return <Splash />;
+    return null;
   }
 
   return (

@@ -3,7 +3,7 @@ import { StyleSheet, View, StatusBar, Image } from 'react-native';
 
 import LoginForm from '../components/LoginForm';
 
-import { colors } from '@/theme/colors';
+import { theme } from '@/theme';
 
 const LoginScreen = () => {
   return (
@@ -25,7 +25,7 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.bg.primary,
+    backgroundColor: theme.colors.surface,
     flex: 1,
     padding: 15,
   },

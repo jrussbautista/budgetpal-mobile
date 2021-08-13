@@ -6,7 +6,7 @@ import { TextInput, Button } from 'react-native-paper';
 import { login } from '../slice';
 
 import { useAppDispatch } from '@/app/hooks';
-import { colors } from '@/theme/colors';
+import { theme } from '@/theme';
 
 const defaultValues = {
   email: '',
@@ -65,7 +65,7 @@ export default LoginForm;
 const styles = StyleSheet.create({
   textInput: {
     marginBottom: 20,
-    backgroundColor: colors.bg.primary,
+    backgroundColor: theme.colors.surface,
   },
   btnContentStyle: {
     height: 50,
