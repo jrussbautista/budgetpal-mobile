@@ -1,10 +1,12 @@
-import { Status } from './../../types/Status';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
-import * as AuthAPI from './auth-api';
-import apiClient from '../../lib/api-client';
-import { User } from '../users/types';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import * as AuthAPI from '../api';
+
+import { User } from '@/features/users/types';
+import apiClient from '@/lib/api-client';
+import { Status } from '@/types';
 
 interface ValidationErrors {
   errors: Record<string, string>;
@@ -20,10 +22,12 @@ const persistCurrentUser = async (user: User, token: string) => {
 export const loadCurrentUser = createAsyncThunk(
   'user/loadCurrentUser',
   async () => {
-    const results = await AsyncStorage.getItem('@currentUser');
-    if (results) {
-      const userDetails = JSON.parse(results);
-      console.log(userDetails);
+    const currentUser = await AsyncStorage.getItem('@currentUser');
+    const userToken = await AsyncStorage.getItem('@currentUserToken');
+    if (currentUser && userToken) {
+      const userDetails = JSON.parse(currentUser);
+      apiClient.defaults.headers.common.Authorization = `Bearer ${userToken}`;
+
       return userDetails;
     }
 

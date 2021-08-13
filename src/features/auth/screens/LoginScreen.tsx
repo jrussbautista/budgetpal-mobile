@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, StatusBar, Image } from 'react-native';
-import { colors } from '../../../theme/colors';
+
 import LoginForm from '../components/LoginForm';
+
+import { colors } from '@/theme/colors';
 
 const LoginScreen = () => {
   return (

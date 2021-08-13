@@ -1,10 +1,11 @@
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import BudgetsScreen from '../features/budgets/screens/BudgetsScreen';
+import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import ReportsScreen from '../features/reports/screens/ReportsScreen';
-import DashboardScreen from '../features/dashboard/screens/DashboardScreen';
-import TransactionsScreen from '../features/transactions/screens/TransactionsScreen';
+
+import BudgetsScreen from '@/features/budgets/screens/BudgetsScreen';
+import DashboardScreen from '@/features/dashboard/screens/DashboardScreen';
+import ReportsScreen from '@/features/reports/screens/ReportsScreen';
+import TransactionsScreen from '@/features/transactions/screens/TransactionsScreen';
 
 const Tab = createBottomTabNavigator();
 

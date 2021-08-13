@@ -2,9 +2,11 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
-import { useAppDispatch } from '../../../app/hooks';
-import { colors } from '../../../theme/colors';
-import { login } from '../auth-slice';
+
+import { login } from '../slice';
+
+import { useAppDispatch } from '@/app/hooks';
+import { colors } from '@/theme/colors';
 
 const defaultValues = {
   email: '',

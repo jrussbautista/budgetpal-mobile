@@ -1,12 +1,14 @@
 import 'react-native-gesture-handler';
-import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
+import React, { useEffect } from 'react';
+
 import AuthNavigator from './AuthNavigator';
 import MainTabNavigator from './MainTabNavigator';
-import { loadCurrentUser } from '../features/auth/auth-slice';
-import Splash from '../app/Splash';
+
+import Splash from '@/app/Splash';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { loadCurrentUser } from '@/features/auth/slice';
 
 const Stack = createStackNavigator();
 
