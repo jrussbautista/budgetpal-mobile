@@ -57,7 +57,8 @@
   },
   "private": true,
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.+(ts|tsx)": [
+      "npm run lint"
+    ]
   }
 }
