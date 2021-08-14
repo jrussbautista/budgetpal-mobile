@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const ReportsScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>reports screen here</Text>
     </View>
   );
@@ -11,4 +11,6 @@ const ReportsScreen = () => {
 
 export default ReportsScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {},
+});

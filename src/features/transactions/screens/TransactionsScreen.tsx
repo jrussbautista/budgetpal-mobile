@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const TransactionsScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>transactions screen here</Text>
     </View>
   );
@@ -11,4 +11,6 @@ const TransactionsScreen = () => {
 
 export default TransactionsScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {},
+});
