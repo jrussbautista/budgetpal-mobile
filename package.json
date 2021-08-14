@@ -9,7 +9,8 @@
     "lint": "eslint --fix --ext .js,.ts,.tsx ./src --ignore-path .gitignore",
     "prepare": "husky install",
     "check-types": "tsc --project tsconfig.json --pretty --noEmit",
-    "validate": "npm-run-all --parallel check-types && lint-staged"
+    "validate": "npm-run-all --parallel check-types && lint-staged",
+    "pre-commit": "npx lint-staged"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.0",
@@ -55,11 +56,10 @@
     "extends": "universe/native"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "npm run lint"
-    ],
-    "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "./src/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "npm runt lint"
+    ]
   },
   "private": true
 }
